@@ -1,6 +1,6 @@
 package mo;
 
-public class fizzbuzz {
+public class Fizzbuzz {
 	public static void main(String[] args) {
 		int fizz = 3;
 		int buzz = 4;

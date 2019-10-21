@@ -48,4 +48,19 @@ public class Sort {
 		}
 		return list;
 	}
+
+	public static ArrayList<Integer> searchSort(ArrayList<Integer> list){
+		for(int i=0;i<list.size();i++) {
+			int k1=0;
+			for(int j=i;j<list.size();j++){
+				if(i==0){
+					k1=list.get(j);
+				}else if(list.get(j)<k1){
+					k1=list.get(j);
+				}
+			}
+			list.set(i,k1);
+		}
+		return list;
+	}
 }
