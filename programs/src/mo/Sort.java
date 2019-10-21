@@ -2,16 +2,16 @@ package mo;
 
 import java.util.ArrayList;
 
-public class bubbleSort {
+public class Sort {
 	
 	public static void main(String[] args) {
 		ArrayList<Integer> list =new ArrayList<>();
-		for(int i=0;i<10;i++) {
+		for(int i=0;i<5;i++) {
 			int a=(int) (Math.random()*20);
 			list.add(a);
 		}
 		System.out.println(list);
-		list=bubbleSort(list);
+		list=monkeySort(list);
 		System.out.println(list);
 		
 	}
@@ -23,6 +23,26 @@ public class bubbleSort {
 					int a=list.get(j);
 					list.set(j, list.get(j+1));
 					list.set(j+1, a);
+				}
+			}
+		}
+		return list;
+	}
+
+	public static ArrayList<Integer> monkeySort(ArrayList<Integer> list){
+		int z=0;
+		while(!(list.size()-z-1==0)) {
+			int[] a = new int[list.size()];
+			for (int i = 0; i < a.length; i++) {
+				int j = (int) (Math.random() * a.length);
+				int x = list.get(j);
+				list.set(j, list.get(i));
+				list.set(i, x);
+			}
+			z=0;
+			for(int i=1;i<list.size();i++){
+				if((list.get(i-1)<list.get(i))){
+					z++;
 				}
 			}
 		}
