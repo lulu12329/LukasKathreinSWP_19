@@ -11,7 +11,7 @@ public class Sort {
 			list.add(a);
 		}
 		System.out.println(list);
-		list=monkeySort(list);
+		list=shotgunSort(list);
 		System.out.println(list);
 		
 	}
@@ -29,7 +29,7 @@ public class Sort {
 		return list;
 	}
 
-	public static ArrayList<Integer> monkeySort(ArrayList<Integer> list){
+	public static ArrayList<Integer> shotgunSort(ArrayList<Integer> list){
 		int z=0;
 		while(!(list.size()-z-1==0)) {
 			int[] a = new int[list.size()];
@@ -49,7 +49,7 @@ public class Sort {
 		return list;
 	}
 
-	public static ArrayList<Integer> searchSort(ArrayList<Integer> list){
+	public static ArrayList<Integer> selectionSort(ArrayList<Integer> list){
 		for(int i=0;i<list.size();i++) {
 			int k1=0;
 			for(int j=i;j<list.size();j++){
