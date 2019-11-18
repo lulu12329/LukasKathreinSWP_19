@@ -4,18 +4,6 @@ import java.util.ArrayList;
 
 public class Sort {
 	
-	public static void main(String[] args) {
-		ArrayList<Integer> list =new ArrayList<>();
-		for(int i=0;i<5;i++) {
-			int a=(int) (Math.random()*20);
-			list.add(a);
-		}
-		System.out.println(list);
-		list=shotgunSort(list);
-		System.out.println(list);
-		
-	}
-	
 	public static ArrayList<Integer> bubbleSort(ArrayList<Integer> list) {
 		for(int i=0;i<list.size();i++) {
 			for (int j=0;j<list.size()-1-i;j++) {
@@ -33,15 +21,17 @@ public class Sort {
 		int z=0;
 		while(!(list.size()-z-1==0)) {
 			int[] a = new int[list.size()];
+			//reandom neu anordnen
 			for (int i = 0; i < a.length; i++) {
 				int j = (int) (Math.random() * a.length);
 				int x = list.get(j);
 				list.set(j, list.get(i));
 				list.set(i, x);
 			}
+			//überprüfen
 			z=0;
 			for(int i=1;i<list.size();i++){
-				if((list.get(i-1)<list.get(i))){
+				if((list.get(i-1)<=list.get(i))){
 					z++;
 				}
 			}
