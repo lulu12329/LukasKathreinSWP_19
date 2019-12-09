@@ -1,7 +1,9 @@
 package mo;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class sortingBenchmark {
 
@@ -14,23 +16,26 @@ public class sortingBenchmark {
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> list =getRandomList(200);
-        long startTime=0;
-        long duration=0;
+        ArrayList<Integer> list =getRandomList(10);
+        long time;
+        time=sortBenchmark(list,j->Sort.insertionSort(list));
+        System.out.println(time+"ms");
+        int i=40;
+        time=recursiveBenchmark(i,j->rekursion.recursiveFibonacci(i));
+        System.out.println(time+"ms");
+    }
 
-        startTime=System.currentTimeMillis();
-        Sort.bubbleSort(list);
-        duration=System.currentTimeMillis()-startTime;
-        System.out.println("bubbleSort takes "+duration+"ms");
+    public static long sortBenchmark(ArrayList list, Consumer function){
+        long startTime=System.currentTimeMillis();
+        function.accept(list);
+        long duration=System.currentTimeMillis()-startTime;
+        return duration;
+    }
 
-        startTime=System.currentTimeMillis();
-        Sort.selectionSort(list);
-        duration=System.currentTimeMillis()-startTime;
-        System.out.println("selectionSort takes "+duration+"ms");
-
-        startTime=System.currentTimeMillis();
-        Sort.shotgunSort(list);
-        duration=System.currentTimeMillis()-startTime;
-        System.out.println("shotgunSort takes "+duration+"ms");
+    public static long recursiveBenchmark(int i,Consumer function){
+        long startTime=System.currentTimeMillis();
+        function.accept(i);
+        long duration=System.currentTimeMillis()-startTime;
+        return duration;
     }
 }

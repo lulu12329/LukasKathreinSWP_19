@@ -53,4 +53,18 @@ public class Sort {
 		}
 		return list;
 	}
+
+	public static ArrayList<Integer> insertionSort(ArrayList<Integer> list){
+		for(int i=1;i<list.size();i++){
+			for(int j=0;j<i;j++){
+				if(list.get(j)>list.get(i)){
+					int x=list.get(i);
+					list.remove(i);
+					list.add(j,x);
+					j=i;
+				}
+			}
+		}
+		return list;
+	}
 }
