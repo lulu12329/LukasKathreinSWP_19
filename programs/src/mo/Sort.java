@@ -1,5 +1,6 @@
 package mo;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Sort {
@@ -66,5 +67,31 @@ public class Sort {
 			}
 		}
 		return list;
+	}
+
+	public static ArrayList<Integer> quickSort(ArrayList<Integer> list){
+		if(list.size()<=1){
+			return list;
+		}
+		int idxPivot=list.size()/2;
+		ArrayList<Integer> kl=new ArrayList<>();
+		ArrayList<Integer> gr=new ArrayList<>();
+
+		for(int i=0;i<list.size();i++) {
+			if(i!=idxPivot) {
+				int j = list.get(i);
+				if (j <= list.get(idxPivot)) {
+					kl.add(j);
+				} else if (j > list.get(idxPivot)) {
+					gr.add(j);
+				}
+			}
+		}
+		int pivot=list.get(idxPivot);
+		ArrayList<Integer> a=new ArrayList<>();
+		a.addAll(quickSort(kl));
+		a.add(pivot);
+		a.addAll(quickSort(gr));
+		return a;
 	}
 }

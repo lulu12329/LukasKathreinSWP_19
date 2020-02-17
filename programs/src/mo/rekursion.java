@@ -71,7 +71,7 @@ public class rekursion {
 //        System.out.println("recursiveFaculty: "+recursiveFaculty(4));
 //        System.out.println("interativeFibonacci: "+interativeFaculty(4));
 //        System.out.println("recursiveFibonacci: "+recursiveFibonacci(50));
-//        System.out.println("recursivePascalschesTriangle: "+recursivePascalschesTriangle(4,2));
-        System.out.println("interativePascalschesTriangle: "+interativePascalshesTriangle(4,2));
+//        System.out.println("recursivePascalschesTriangle: "+recursivePascalschesTriangle(20,10));
+//        System.out.println("interativePascalschesTriangle: "+interativePascalshesTriangle(20,10));
     }
 }
