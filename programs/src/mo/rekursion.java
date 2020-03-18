@@ -66,12 +66,32 @@ public class rekursion {
         return recursivePascalschesTriangle(line-1,column-1)+recursivePascalschesTriangle(line-1,column);
     }
 
+    public static boolean isPrimenumber(int x){
+        if(x==1){
+            return false;
+        }
+        return primenumber(x,x-1);
+    }
+    private static boolean primenumber(int x, int i){
+        if(i==1){
+            return true;
+        }else if(x%i==0){
+            return false;
+        }
+        return primenumber(x,i-1);
+    }
+
+    public static int sumOfDigits(int x){
+        if(x<0){
+            x=-x;
+        }
+        if(x/10==0){
+            return x;
+        }
+        return x%10+sumOfDigits(sumOfDigits(x/10));
+    }
+
     public static void main(String[] args) {
-//        System.out.println("interativFaculty: "+interativeFaculty(4));
-//        System.out.println("recursiveFaculty: "+recursiveFaculty(4));
-//        System.out.println("interativeFibonacci: "+interativeFaculty(4));
-//        System.out.println("recursiveFibonacci: "+recursiveFibonacci(50));
-//        System.out.println("recursivePascalschesTriangle: "+recursivePascalschesTriangle(20,10));
-//        System.out.println("interativePascalschesTriangle: "+interativePascalshesTriangle(20,10));
+        System.out.print(sumOfDigits(-12));
     }
 }
