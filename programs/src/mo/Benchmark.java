@@ -1,6 +1,7 @@
 package mo;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class Benchmark {
@@ -15,11 +16,14 @@ public class Benchmark {
     }
 
     public static void main(String[] args) {
-        int length=5;
+        int length=10;
+        int number=10;
         System.out.println("list length: "+length);
-        ArrayList<Integer> list =getRandomList(length);
+        boolean b=true;
+        ArrayList<Integer> list = getRandomList(length);
         System.out.println(list);
-        double time;
+
+//        double time;
 //        int i=40;
 //        time=recursiveBenchmark(i,j->rekursion.recursiveFibonacci(i));
 //        System.out.println(time+"ms");
@@ -29,8 +33,6 @@ public class Benchmark {
 
 //        time=sortBenchmark(list,j->Sort.mergeSort(list));
 //        System.out.println("mergeSort: "+time/1000+"ms");
-
-        System.out.println("result: "+Sort.mergeSort(list));
     }
 
     public static long sortBenchmark(ArrayList list, Consumer function){
