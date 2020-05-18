@@ -1,11 +1,11 @@
 package datenstruktur;
 
-public class doublyNode {
+public class DoublyNode {
     private int value;
-    private doublyNode previous;
-    private doublyNode next;
+    private DoublyNode previous;
+    private DoublyNode next;
 
-    public doublyNode(int value){
+    public DoublyNode(int value){
         this.value=value;
     }
 
@@ -17,19 +17,19 @@ public class doublyNode {
         this.value = value;
     }
 
-    public doublyNode getPrevious() {
+    public DoublyNode getPrevious() {
         return previous;
     }
 
-    public void setPrevious(doublyNode previous) {
+    public void setPrevious(DoublyNode previous) {
         this.previous = previous;
     }
 
-    public doublyNode getNext() {
+    public DoublyNode getNext() {
         return next;
     }
 
-    public void setNext(doublyNode next) {
+    public void setNext(DoublyNode next) {
         this.next = next;
     }
 

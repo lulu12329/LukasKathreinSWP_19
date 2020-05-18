@@ -7,17 +7,16 @@ public class LinkedList {
 		Node tmp = new Node(value);
 		if (head == null) {
 			head = tmp;
-			return;
+		}else {
+			Node it=head;
+			while (it.hasNext()) {
+				it = it.next();
+			}
+			it.setNext(tmp);
 		}
-		Node it;
-		it = head;
-		while (it.hasNext()) {
-			it = it.next();
-		}
-		it.setNext(tmp);	
 	}
 
-	public void insert(int value,int pos){
+	public void add(int value, int pos){
 		try {
 			//Liste leer oder zu hohe pos
 			if (pos < 0 || pos >= this.size()+1) {
@@ -41,7 +40,6 @@ public class LinkedList {
 		}
 	}
 
-	//returns false if operation failed
 	public void delete(int pos) {
 		try {
 			//Liste leer oder zu hohe pos
