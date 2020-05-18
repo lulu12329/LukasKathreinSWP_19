@@ -9,7 +9,7 @@ public class Main {
         ll.add(6);
         ll.add(8);
         System.out.println(ll);
-        ll.delete(3);
+        ll.delete(1);
         System.out.println(ll);
     }
 }

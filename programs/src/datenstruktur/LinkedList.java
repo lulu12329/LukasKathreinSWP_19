@@ -2,7 +2,7 @@ package datenstruktur;
 
 public class LinkedList {
 	private Node head;
-	
+
 	public void add(int value) {
 		Node tmp = new Node(value);
 		if (head == null) {
@@ -18,29 +18,25 @@ public class LinkedList {
 	}
 
 	//returns false if operation failed
-	public boolean delete(int pos) {
-		//Liste leer
-		if (head==null||pos>=this.size()){
-			return false;
-		}
-		if(pos==0){
-			if(head.hasNext()) {
-				head = head.next();
-			}else{
-				head=null;
+	public void delete(int pos) {
+		try {
+			//Liste leer
+			if (pos < 0 || pos >= this.size()) {
+				throw new IllegalArgumentException();
 			}
-			return true;
+			//erstes Element löschen
+			if (pos == 0) {
+				head=head.next();
+			}else {
+				Node it = head;
+				for (int i = 0; i < pos - 1; i++) {
+					it = it.next();
+				}
+				it.setNext(it.next().next());
+			}
+		}catch (IllegalArgumentException e){
+			System.err.println("Please write a valid argument");
 		}
-		Node it=head;
-		for(int i=0;i<pos-1;i++){
-			it=it.next();
-		}
-		if(it.next().hasNext()){
-			it.setNext(it.next().next());
-		}else{
-			it.setNext(null);
-		}
-		return true;
 	}
 
 	public int size(){
