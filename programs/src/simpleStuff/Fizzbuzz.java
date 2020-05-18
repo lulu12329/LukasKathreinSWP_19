@@ -1,4 +1,4 @@
-package mo;
+package simpleStuff;
 
 public class Fizzbuzz {
 	public static void main(String[] args) {
