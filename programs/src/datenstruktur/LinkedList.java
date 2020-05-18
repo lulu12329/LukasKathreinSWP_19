@@ -17,12 +17,36 @@ public class LinkedList {
 		it.setNext(tmp);	
 	}
 
+	public void insert(int value,int pos){
+		try {
+			//Liste leer oder zu hohe pos
+			if (pos < 0 || pos >= this.size()+1) {
+				throw new IllegalArgumentException(""+pos);
+			}
+			if(pos==0){
+				Node tmp=head;
+				head=new Node(value);
+				head.setNext(tmp);
+			}else{
+				Node tmp=head;
+				for(int i=0;tmp.hasNext()&&i<pos-1;i++){
+					tmp=tmp.next();
+				}
+				Node it=tmp.next();
+				tmp.setNext(new Node(value));
+				tmp.next().setNext(it);
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+
 	//returns false if operation failed
 	public void delete(int pos) {
 		try {
-			//Liste leer
+			//Liste leer oder zu hohe pos
 			if (pos < 0 || pos >= this.size()) {
-				throw new IllegalArgumentException();
+				throw new IllegalArgumentException(""+pos);
 			}
 			//erstes Element löschen
 			if (pos == 0) {
@@ -35,7 +59,7 @@ public class LinkedList {
 				it.setNext(it.next().next());
 			}
 		}catch (IllegalArgumentException e){
-			System.err.println("Please write a valid argument");
+			e.printStackTrace();
 		}
 	}
 
@@ -54,13 +78,16 @@ public class LinkedList {
 
 	@Override
 	public String toString() {
-		String ret = "";
-		Node it = head;
-		while (it.hasNext()) {
+		if(head!=null) {
+			String ret = "";
+			Node it = head;
+			while (it.hasNext()) {
+				ret += "" + it.getValue() + " ";
+				it = it.next();
+			}
 			ret += "" + it.getValue() + " ";
-			it = it.next();
+			return ret;
 		}
-		ret += "" + it.getValue() + " ";
-		return ret;
+		return "List empty";
 	}
 }

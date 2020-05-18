@@ -9,7 +9,9 @@ public class Main {
         ll.add(6);
         ll.add(8);
         System.out.println(ll);
-        ll.delete(1);
-        System.out.println(ll);
+//        ll.delete(-1);
+//        System.out.println(ll);
+        ll.insert(1,6);
+        System.out.println(ll.toString());
     }
 }
